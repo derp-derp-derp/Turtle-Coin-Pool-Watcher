@@ -9,37 +9,37 @@
                         <div class="pad" style="margin-top: 40px;" ng-hide="loading">
                         
                             <div style="text-align: center; word-break: break-all; padding: 10px; margin-bottom: 10px;">
-                                <strong>Miner:</strong><br>
+                                <strong>Miner</strong><br>
                                 {{wallet_address}}
                             </div>
                             
                             <div class="content_card">
-                                <strong>Hash Rate:</strong><br>
+                                <strong>Hash Rate</strong><br>
                                 {{miner_stats.hashrate}}/sec
                             </div>
                             
                             <div class="content_card">
-                                <strong>Paid:</strong><br>
+                                <strong>Paid</strong><br>
                                 {{paid_formatted}} TRTL
                             </div>
                             
                             <div class="content_card">
-                                <strong>Balance:</strong><br>
+                                <strong>Balance</strong><br>
                                 {{balance_formatted}} TRTL
                             </div>
                             
                             <div class="content_card">
-                                <strong>Last Share:</strong><br>
+                                <strong>Last Share</strong><br>
                                 {{miner_stats.lastShare | timeAgoLastShare}}
                             </div>
                             
                             <div class="content_card">
-                                <strong>Submitted Hashes:</strong><br>
+                                <strong>Submitted Hashes</strong><br>
                                 {{miner_stats.hashes}}
                             </div>
                             
                             <div class="content_card">
-                                <strong>Hash Rate Chart:</strong><br>
+                                <strong>Hash Rate Chart</strong><br>
                                 <div id="chart"></div>
                             </div>
                         
