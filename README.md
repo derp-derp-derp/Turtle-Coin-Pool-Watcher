@@ -1,6 +1,6 @@
 # Pool Monitor
 
-An iOS application to monitor mining stats for all major TurtleCoin mining pools running CryptoNote
+An Apache Cordova iOS application to monitor mining stats for all major TurtleCoin mining pools running CryptoNote
 
 Using Pool Monitor you can get all the details regarding your TurtleCoin mining like hash rate, payments, and more.
 
