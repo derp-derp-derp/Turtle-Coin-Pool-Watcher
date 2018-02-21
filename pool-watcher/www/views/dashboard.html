@@ -2,25 +2,46 @@
             <div id="content">
                 <div class="vAlignTop">
                     <div class="loading" ng-show="loading">Loading&#8230;</div>
-                    <div id="heading" style="border-bottom: 0px; background-color: #00843d;"><a href back-button id="back-button"></a><span>Dashboard</span></div>
+                    <div id="heading" style="border-bottom: 0px;"><a href back-button id="back-button"></a><span>Dashboard</span></div>
                     
                     <div class="scrollFix">
                         
                         <div class="pad" style="margin-top: 40px;" ng-hide="loading">
                         
-                            <p><strong>Miner:</strong><br>{{wallet_address}}</p>
+                            <div style="text-align: center; word-break: break-all; padding: 10px; margin-bottom: 10px;">
+                                <strong>Miner:</strong><br>
+                                {{wallet_address}}
+                            </div>
                             
-                            <p><strong>Hash Rate:</strong><br>{{miner_stats.hashrate}}/sec</p>
+                            <div class="content_card">
+                                <strong>Hash Rate:</strong><br>
+                                {{miner_stats.hashrate}}/sec
+                            </div>
                             
-                            <p><strong>Paid:</strong><br>{{paid_formatted}} TRTL</p>
+                            <div class="content_card">
+                                <strong>Paid:</strong><br>
+                                {{paid_formatted}} TRTL
+                            </div>
                             
-                            <p><strong>Balance:</strong><br>{{balance_formatted}} TRTL</p>
+                            <div class="content_card">
+                                <strong>Balance:</strong><br>
+                                {{balance_formatted}} TRTL
+                            </div>
                             
-                            <p><strong>Last Share:</strong><br><span>{{miner_stats.lastShare | timeAgoLastShare}}</span></p>
+                            <div class="content_card">
+                                <strong>Last Share:</strong><br>
+                                {{miner_stats.lastShare | timeAgoLastShare}}
+                            </div>
                             
-                            <p><strong>Submitted Hashes:</strong><br>{{miner_stats.hashes}}</p>
+                            <div class="content_card">
+                                <strong>Submitted Hashes:</strong><br>
+                                {{miner_stats.hashes}}
+                            </div>
                             
-                            <p><strong>Hash Chart:</strong><br>HIGH CHARTS PLACEHOLDER</p>
+                            <div class="content_card">
+                                <strong>Hash Chart:</strong><br>
+                                HIGH CHARTS PLACEHOLDER
+                            </div>
                         
                         </div>
                     
