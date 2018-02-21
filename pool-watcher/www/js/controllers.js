@@ -55,6 +55,7 @@ angular.module('tc.controllers', [])
         
         $('#chart').highcharts({
             chart: {
+                type: "areaspline",
                 height: 200,
                 backgroundColor: '#F9F9F9'
             },
@@ -99,7 +100,7 @@ angular.module('tc.controllers', [])
                 shadow: false
             },
             series: [{
-                color: '#00843d',
+                color: '#5d5d5d',
                 data: hashes
             }]
         });
