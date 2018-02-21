@@ -1,0 +1,519 @@
+/*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+html {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+   
+        @font-face {
+          font-family: 'Roboto Thin Italic';
+          src: url('fonts/Roboto Thin/Roboto-ThinItalic.eot');
+          src: url('fonts/Roboto Thin/Roboto-ThinItalic.eot?#iefix') format('embedded-opentype'),
+          url('fonts/Roboto Thin/Roboto-ThinItalic.woff2') format('woff2'),
+          url('fonts/Roboto Thin/Roboto-ThinItalic.woff') format('woff'),
+          url('fonts/Roboto Thin/Roboto-ThinItalic.svg#Roboto-ThinItalic') format('svg');
+          font-weight: normal;
+          font-style: normal; }
+          
+        @font-face {
+          font-family: 'Roboto Black';
+          src: url('fonts/Roboto Black/Roboto-Black.eot');
+          src: url('fonts/Roboto Black/Roboto-Black.eot?#iefix') format('embedded-opentype'),
+          url('fonts/Roboto Black/Roboto-Black.woff2') format('woff2'),
+          url('fonts/Roboto Black/Roboto-Black.woff') format('woff'),
+          url('fonts/Roboto Black/Roboto-Black.svg#Roboto-Black') format('svg');
+          font-weight: normal;
+          font-style: normal; }
+          
+        @font-face {
+          font-family: 'Roboto Thin';
+          src: url('fonts/Roboto Thin/Roboto-Thin.eot');
+          src: url('fonts/Roboto Thin/Roboto-Thin.eot?#iefix') format('embedded-opentype'),
+          url('fonts/Roboto Thin/Roboto-Thin.woff2') format('woff2'),
+          url('fonts/Roboto Thin/Roboto-Thin.woff') format('woff'),
+          url('fonts/Roboto Thin/Roboto-Thin.svg#Roboto-Thin') format('svg');
+          font-weight: normal;
+          font-style: normal; }
+          
+        @font-face {
+          font-family: 'Roboto';
+          src: url('fonts/Roboto/Roboto-Regular.eot');
+          src: url('fonts/Roboto/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+          url('fonts/Roboto/Roboto-Regular.woff2') format('woff2'),
+          url('fonts/Roboto/Roboto-Regular.woff') format('woff'),
+          url('fonts/Roboto/Roboto-Regular.svg#Roboto-Regular') format('svg');
+          font-weight: normal;
+          font-style: normal; }
+          
+        @font-face {
+          font-family: 'Roboto Medium';
+          src: url('fonts/Roboto Medium/Roboto-Medium.eot');
+          src: url('fonts/Roboto Medium/Roboto-Medium.eot?#iefix') format('embedded-opentype'),
+          url('fonts/Roboto Medium/Roboto-Medium.woff2') format('woff2'),
+          url('fonts/Roboto Medium/Roboto-Medium.woff') format('woff'),
+          url('fonts/Roboto Medium/Roboto-Medium.svg#Roboto-Medium') format('svg');
+          font-weight: normal;
+          font-style: normal; }
+          
+        @font-face {
+          font-family: 'Roboto Medium Italic';
+          src: url('fonts/Roboto Medium/Roboto-MediumItalic.eot');
+          src: url('fonts/Roboto Medium/Roboto-MediumItalic.eot?#iefix') format('embedded-opentype'),
+          url('fonts/Roboto Medium/Roboto-MediumItalic.woff2') format('woff2'),
+          url('fonts/Roboto Medium/Roboto-MediumItalic.woff') format('woff'),
+          url('fonts/Roboto Medium/Roboto-MediumItalic.svg#Roboto-MediumItalic') format('svg');
+          font-weight: normal;
+          font-style: normal; }
+          
+        @font-face {
+          font-family: 'Roboto Light Italic';
+          src: url('fonts/Roboto Light/Roboto-LightItalic.eot');
+          src: url('fonts/Roboto Light/Roboto-LightItalic.eot?#iefix') format('embedded-opentype'),
+          url('fonts/Roboto Light/Roboto-LightItalic.woff2') format('woff2'),
+          url('fonts/Roboto Light/Roboto-LightItalic.woff') format('woff'),
+          url('fonts/Roboto Light/Roboto-LightItalic.svg#Roboto-LightItalic') format('svg');
+          font-weight: normal;
+          font-style: normal; }
+          
+        @font-face {
+          font-family: 'Roboto Italic';
+          src: url('fonts/Roboto/Roboto-Italic.eot');
+          src: url('fonts/Roboto/Roboto-Italic.eot?#iefix') format('embedded-opentype'),
+          url('fonts/Roboto/Roboto-Italic.woff2') format('woff2'),
+          url('fonts/Roboto/Roboto-Italic.woff') format('woff'),
+          url('fonts/Roboto/Roboto-Italic.svg#Roboto-Italic') format('svg');
+          font-weight: normal;
+          font-style: normal; }
+          
+        @font-face {
+          font-family: 'Roboto Light';
+          src: url('fonts/Roboto Light/Roboto-Light.eot');
+          src: url('fonts/Roboto Light/Roboto-Light.eot?#iefix') format('embedded-opentype'),
+          url('fonts/Roboto Light/Roboto-Light.woff2') format('woff2'),
+          url('fonts/Roboto Light/Roboto-Light.woff') format('woff'),
+          url('fonts/Roboto Light/Roboto-Light.svg#Roboto-Light') format('svg');
+          font-weight: normal;
+          font-style: normal; }
+          
+        @font-face {
+          font-family: 'Roboto Bold Italic';
+          src: url('fonts/Roboto-BoldItalic.eot');
+          src: url('fonts/Roboto-BoldItalic.eot?#iefix') format('embedded-opentype'),
+          url('fonts/Roboto-BoldItalic.woff2') format('woff2'),
+          url('fonts/Roboto-BoldItalic.woff') format('woff'),
+          url('fonts/Roboto-BoldItalic.svg#Roboto-BoldItalic') format('svg');
+          font-weight: normal;
+          font-style: normal; }
+          
+        @font-face {
+          font-family: 'Roboto Black Italic';
+          src: url('fonts/Roboto Black/Roboto-BlackItalic.eot');
+          src: url('fonts/Roboto Black/Roboto-BlackItalic.eot?#iefix') format('embedded-opentype'),
+          url('fonts/Roboto Black/Roboto-BlackItalic.woff2') format('woff2'),
+          url('fonts/Roboto Black/Roboto-BlackItalic.woff') format('woff'),
+          url('fonts/Roboto Black/Roboto-BlackItalic.svg#Roboto-BlackItalic') format('svg');
+          font-weight: normal;
+          font-style: normal; }
+          
+        @font-face {
+          font-family: 'Roboto Bold';
+          src: url('fonts/Roboto/Roboto-Bold.eot');
+          src: url('fonts/Roboto/Roboto-Bold.eot?#iefix') format('embedded-opentype'),
+          url('fonts/Roboto/Roboto-Bold.woff2') format('woff2'),
+          url('fonts/Roboto/Roboto-Bold.woff') format('woff'),
+          url('fonts/Roboto/Roboto-Bold.svg#Roboto-Bold') format('svg');
+          font-weight: normal;
+          font-style: normal; }
+
+a {
+    color: #00843d;
+}
+
+img {
+    -webkit-user-drag: none;
+}
+
+.clear {
+    clear: both;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+html,
+body {
+    height: 100%; 
+    padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Roboto", Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
+   -webkit-overflow-scrolling: touch;
+   -webkit-tap-highlight-color:rgba(0,0,0,0);
+   -webkit-touch-callout: none;
+   -webkit-user-select: none;
+}
+
+div {
+    -webkit-overflow-scrolling: touch;
+}
+
+.Roboto {
+    font-family: 'Roboto';
+}
+
+.RobotoBold {
+    font-family: 'Roboto Bold';
+}
+
+#main-bg-container {
+    background-color: #ffffff;
+    display: table; 
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#main-bg-container > div {   
+    display: table-row;   
+    width: 100%;
+}
+
+#main-bg-container > div > div {   
+    display: table-cell;
+    width: 100%;
+}
+
+#content > div {
+    height: 100%;
+    vertical-align: middle;
+}
+
+#content > div.vAlignTop {
+    height: 100%;
+    vertical-align: top;
+}
+
+/* Absolute Center CSS Spinner */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.25);
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 1500ms infinite linear;
+  -moz-animation: spinner 1500ms infinite linear;
+  -ms-animation: spinner 1500ms infinite linear;
+  -o-animation: spinner 1500ms infinite linear;
+  animation: spinner 1500ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+  box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

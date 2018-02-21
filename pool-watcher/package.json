@@ -1,0 +1,24 @@
+{
+    "name": "com.poolwatcher.turtlecoin.lol",
+    "displayName": "Pool Watcher",
+    "version": "1.0.0",
+    "description": "Free monitoring application for checking your Turtle Coin mining pool and worker status.",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "derp-derp-derp",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "cordova-ios": "^4.5.4",
+        "cordova-plugin-whitelist": "^1.3.3"
+    },
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-whitelist": {}
+        },
+        "platforms": [
+            "ios"
+        ]
+    }
+}

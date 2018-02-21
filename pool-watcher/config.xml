@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.poolwatcher.turtlecoin.lol" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Pool Watcher</name>
+    <description>
+        Free monitoring application for checking your Turtle Coin mining pool and worker status.
+    </description>
+    <author email="derpes@protonmail.com" href="https://turtlecoin.lol">
+        derp-derp-derp
+    </author>
+    <content src="index.html" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+        <splash height="2732" src="res/screen/ios/Default@2x~universal~anyany.png" width="2732" />
+        <icon gap:platform="ios" height="20" src="res/icon/ios/AppIcon-20x20@1x.png" width="20" />
+        <icon gap:platform="ios" height="29" src="res/icon/ios/AppIcon-29x29@1x.png" width="29" />
+        <icon gap:platform="ios" height="58" src="res/icon/ios/AppIcon-29x29@2x.png" width="58" />
+        <icon gap:platform="ios" height="87" src="res/icon/ios/AppIcon-29x29@3x.png" width="87" />
+        <icon gap:platform="ios" height="40" src="res/icon/ios/AppIcon-40x40@1x.png" width="40" />
+        <icon gap:platform="ios" height="80" src="res/icon/ios/AppIcon-40x40@2x.png" width="80" />
+        <icon gap:platform="ios" height="57" src="res/icon/ios/AppIcon-57x57@1x.png" width="57" />
+        <icon gap:platform="ios" height="114" src="res/icon/ios/AppIcon-57x57@2x.png" width="114" />
+        <icon gap:platform="ios" height="60" src="res/icon/ios/AppIcon-60x60@1x.png" width="60" />
+        <icon gap:platform="ios" height="120" src="res/icon/ios/AppIcon-60x60@2x.png" width="120" />
+        <icon gap:platform="ios" height="180" src="res/icon/ios/AppIcon-60x60@3x.png" width="180" />
+        <icon gap:platform="ios" height="72" src="res/icon/ios/AppIcon-72x72@1x.png" width="72" />
+        <icon gap:platform="ios" height="144" src="res/icon/ios/AppIcon-72x72@2x.png" width="144" />
+        <icon gap:platform="ios" height="76" src="res/icon/ios/AppIcon-76x76@1x.png" width="76" />
+        <icon gap:platform="ios" height="152" src="res/icon/ios/AppIcon-76x76@2x.png" width="152" />
+        <icon gap:platform="ios" height="167" src="res/icon/ios/AppIcon-83.5x83.5@2x.png" width="167" />
+        <icon gap:platform="ios" height="1024" src="res/icon/ios/AppIcon-1024@1x.png" width="1024" />
+    </platform>
+    <engine name="ios" spec="^4.5.4" />
+</widget>

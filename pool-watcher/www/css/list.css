@@ -1,0 +1,135 @@
+#heading, #sub-heading {
+    z-index: 999;
+}
+
+#heading {
+    height: 44px;
+    width: 100%;
+    font: bold 14pt/44px "BebasNeue", Arial, sans-serif;
+    color: #000000;
+    text-decoration: none;
+    position: fixed;
+    top: 0;
+    top: constant(safe-area-inset-top);
+    top: env(safe-area-inset-top);
+    border-bottom: 1px solid #b2b2b2;
+    background-color: #ffffff;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#back-button {
+    background: url('../img/back-button.png');
+}
+
+#home-back-button {
+    background: url('../img/home-button.png');
+}
+
+#back-button, #home-back-button {
+    height: 21px;
+    width: 64px;
+    background-size: 100% 100%;
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px; 
+}
+
+#sub-heading {
+    height: 28px;
+    width: 100%;
+    font-size: 10pt;
+    line-height: 28px;
+    color: #000000;
+    text-decoration: none;
+    text-align: left;
+    position: fixed;
+    top: 45px;
+    top: calc(constant(safe-area-inset-top) + 45px);
+    top: calc(env(safe-area-inset-top) + 45px);
+    background-color: #f7f7f7;
+    padding-left: 15px;
+}
+
+#list-items-container {
+    width: 100%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+    top: 64px;
+    top: calc(constant(safe-area-inset-top) + 64px);
+    top: calc(env(safe-area-inset-top) + 64px);
+    bottom: 0;
+    padding-top: 10px;
+    background: #ffffff url('../img/stripes.gif') repeat top left;
+}
+
+.list-items-border {
+    height: 44px;
+    border-bottom: 1px solid #c8c7cc;
+}
+
+.listItemLeft {
+    border-bottom: 1px solid #ffffff;
+    width: 5%;
+    background-color: #ffffff;
+    float: left;
+    height: 44px;
+}
+
+#list-items-container a.list-item {
+    height: 44px;
+    width: 95%;
+    font-size: 13pt;
+    line-height: 44px;
+    letter-spacing: 1px;
+    color: #000000;
+    text-decoration: none;
+    text-align: left;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    background: #ffffff url('../img/listArrow.svg') no-repeat right center;
+    background-size: 15px 15px;
+    float: right;
+}
+
+/* Landscape iPhones */
+@media only screen 
+and (orientation : landscape) {
+    #list-items-container a.list-item {
+        width: 97%;
+    }
+    .listItemLeft {
+        width: 3%;
+    }
+}
+
+/* iPad Portrait */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+    #list-items-container a.list-item {
+        width: 98%;
+    }
+    .listItemLeft {
+        width: 2%;
+    }
+}
+
+/* iPad Landscape */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+    #list-items-container a.list-item {
+        width: 98%;
+    }
+    .listItemLeft {
+        width: 2%;
+    }
+}

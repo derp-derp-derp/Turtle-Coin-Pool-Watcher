@@ -1,0 +1,53 @@
+.stripesBg {
+    background: #ffffff url('../img/stripes.gif') repeat top left;
+}
+
+.infoLabel {
+    color: #999999;
+}
+
+.scrollFix {
+    -webkit-transform: translate3d(0,0,0);
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.shoe_data_row {
+    border-bottom: 1px solid #b2b2b2;
+    background-color: #ffffff;
+}
+
+.pad {
+    padding: 10px;
+}
+
+.left_text {
+    text-align: left;
+}
+
+.img_bg {
+    background-color: #00000;
+}
+
+.light_bg {
+    background-color: #fefefe;
+}
+
+img.shoe {
+    width: 320px;
+    height: auto;
+}
+
+/* iPads */
+
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px)  {
+    img.shoe {
+        width: 768px;
+    }
+}
+
+#shoeName {
+    font-size: 14pt;
+}

@@ -1,0 +1,29 @@
+#mainLogo, #submitPool, #searchText {
+    margin-bottom: 30px;
+}
+
+.titleText {
+    font-size: 16pt;
+    line-height: 22pt;
+    color: #fff;
+}
+
+#searchText {
+    border: 1px solid #ffffff;
+    background-color: #00843d;
+    font-size: 15pt;
+    color: #ffffff;
+    width: 260px;
+    text-align: center;
+    padding: 10px;
+    font-family: "Roboto", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+    -webkit-touch-callout: text;
+    -webkit-user-select: text;
+}
+
+@media only screen and (orientation:landscape) {
+    #mainLogo, #submitPool, #searchText {
+        margin-bottom: 10px;
+    }
+}
