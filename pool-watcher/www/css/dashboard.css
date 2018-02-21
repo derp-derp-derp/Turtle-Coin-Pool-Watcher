@@ -4,11 +4,7 @@
     -webkit-overflow-scrolling: touch;
 }
 
-.pad {
-    padding: 10px;
-}
-
 #chart {
     height: 200px;
-    width: 99%;
+    width: 95%;
 }
