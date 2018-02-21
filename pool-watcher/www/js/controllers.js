@@ -27,12 +27,13 @@ angular.module('tc.controllers', [])
     });
 }])
 
-.controller('DashboardCtrl', ['$scope', '$route', '$timeout', 'poolService', function DashboardCtrl($scope, $route, $timeout, poolService) {
+.controller('DashboardCtrl', ['$scope', '$route', '$timeout', '$filter', 'poolService', function DashboardCtrl($scope, $route, $timeout, $filter, poolService) {
     $scope.pool_api_url = $route.current.params.pool;
     $scope.wallet_address = $route.current.params.wallet_address;
     $scope.loading = true;
     
     poolService.getMinerStats( $scope.pool_api_url, $scope.wallet_address ).then(function(stats) {
+        $scope.readable_hash_rate = $filter('getReadableHashRateString')(stats.stats.hashes);
         $scope.miner_stats = stats;
         $scope.loading = false;
     });
