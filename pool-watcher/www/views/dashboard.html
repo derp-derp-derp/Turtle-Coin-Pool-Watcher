@@ -10,7 +10,17 @@
                         
                             <p><strong>Miner:</strong><br>{{wallet_address}}</p>
                             
-                            <p><strong>Hash Rate:</strong><br>{{readable_hash_rate}}/sec</p>
+                            <p><strong>Hash Rate:</strong><br>{{miner_stats.hashrate}}/sec</p>
+                            
+                            <p><strong>Paid:</strong><br>{{paid_formatted}} TRTL</p>
+                            
+                            <p><strong>Balance:</strong><br>{{balance_formatted}} TRTL</p>
+                            
+                            <p><strong>Last Share:</strong><br><span>{{miner_stats.lastShare | timeAgoLastShare}}</span></p>
+                            
+                            <p><strong>Submitted Hashes:</strong><br>{{miner_stats.hashes}}</p>
+                            
+                            <p><strong>Hash Chart:</strong><br>HIGH CHARTS PLACEHOLDER</p>
                         
                         </div>
                     
