@@ -267,6 +267,8 @@ div {
     text-decoration: none;
     position: fixed;
     top: 0;
+    top: constant(safe-area-inset-top);
+    top: env(safe-area-inset-top);
     border-bottom: 1px solid #b2b2b2;
     background-color: #ffffff;
     text-overflow: ellipsis;
