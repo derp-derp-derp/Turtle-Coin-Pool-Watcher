@@ -51,4 +51,4 @@ This project is licensed under the GNU LGPL - see the [LICENSE](https://github.c
 
 * CryptoNote for Developing the Pool Software
 * The Entire Turtle Coin Community
-* Aditya Gupta - Developer of [Pool Watcher for Android](https://github.com/turtlecoin/mobile-pool-monitor) - [adigupta13](https://github.com/adigupta13)
+* Aditya Gupta & Hemant Joshi - Developers of [Pool Watcher for Android](https://github.com/turtlecoin/mobile-pool-monitor)
