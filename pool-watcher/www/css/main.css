@@ -232,6 +232,7 @@ div {
     width: 100%;
     height: 100%;
     text-align: center;
+    color: #000;
 }
 
 #main-bg-container > div {   
@@ -252,6 +253,57 @@ div {
 #content > div.vAlignTop {
     height: 100%;
     vertical-align: top;
+}
+
+#heading, #sub-heading {
+    z-index: 999;
+}
+
+#heading {
+    height: 44px;
+    width: 100%;
+    font: bold 14pt/44px "BebasNeue", Arial, sans-serif;
+    color: #000000;
+    text-decoration: none;
+    position: fixed;
+    top: 0;
+    border-bottom: 1px solid #b2b2b2;
+    background-color: #ffffff;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#back-button {
+    background: url('../img/back-button.png');
+}
+
+#home-back-button {
+    background: url('../img/home-button.png');
+}
+
+#back-button, #home-back-button {
+    height: 21px;
+    width: 64px;
+    background-size: 100% 100%;
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px; 
+}
+
+#sub-heading {
+    height: 28px;
+    width: 100%;
+    font-size: 10pt;
+    line-height: 28px;
+    color: #000000;
+    text-decoration: none;
+    text-align: left;
+    position: fixed;
+    top: 45px;
+    background-color: #f7f7f7;
+    padding-left: 15px;
 }
 
 /* Absolute Center CSS Spinner */

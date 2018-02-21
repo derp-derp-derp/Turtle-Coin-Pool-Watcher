@@ -1,0 +1,13 @@
+.stripesBg {
+    background: #ffffff url('../img/stripes.gif') repeat top left;
+}
+
+.scrollFix {
+    -webkit-transform: translate3d(0,0,0);
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.pad {
+    padding: 10px;
+}
