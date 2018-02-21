@@ -4,8 +4,7 @@ angular.module('tc.controllers', [])
 
 .controller('HomeCtrl', ['$scope', '$location', function HomeCtrl($scope, $location) {
     var doSubmitPool = function() {
-        //var pool = $('#poolApiUrl').val();
-        var pool = '1';
+        var pool = btoa($('#poolApiUrl').val());
         var wallet_address = $('#walletAddress').val();
         
         if(wallet_address.length > 1 && wallet_address !== 'Wallet address') {
