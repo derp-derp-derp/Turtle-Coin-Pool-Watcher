@@ -233,6 +233,8 @@ div {
     height: 100%;
     text-align: center;
     color: #5d5d5d;
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
 }
 
 #main-bg-container > div {   
@@ -268,6 +270,7 @@ div {
     text-decoration: none;
     position: fixed;
     top: 0;
+    /* iPhone X notch fix - https://stackoverflow.com/questions/46232812/cordova-app-not-displaying-correctly-on-iphone-x-simulator */
     top: constant(safe-area-inset-top);
     top: env(safe-area-inset-top);
     border-bottom: 1px solid #b2b2b2;

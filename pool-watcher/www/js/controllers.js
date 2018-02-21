@@ -56,7 +56,6 @@ angular.module('tc.controllers', [])
         $('#chart').highcharts({
             chart: {
                 type: "areaspline",
-                height: 200,
                 backgroundColor: '#F9F9F9'
             },
             legend: {
