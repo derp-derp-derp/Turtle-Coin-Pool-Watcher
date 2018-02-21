@@ -41,11 +41,16 @@ angular.module('tc.controllers', [])
         var hashes = [];
         
         angular.forEach(stats.charts.hashrate, function(value, key) {
-            var data_point = {
-                name: stats.charts.hashrate[key][0],
-                y: Number(stats.charts.hashrate[key][1])
+            // API gives us the last 45 data points by default
+            // only show the most recent 15
+            if(key >= 30)
+            {
+                var data_point = {
+                    name: stats.charts.hashrate[key][0],
+                    y: Number(stats.charts.hashrate[key][1])
+                }
+                hashes.push(data_point);
             }
-            hashes.push(data_point);
         });
         
         $('#chart').highcharts({
