@@ -27,6 +27,11 @@ angular.module('tc.controllers', [])
     });
 }])
 
+.controller('TemplateCtrl', ['$scope', '$location', function HomeCtrl($scope, $location) {
+    console.log('made it');
+    $scope.loading = false;
+}])
+
 .controller('DashboardCtrl', ['$scope', '$route', '$timeout', '$filter', 'poolService', function DashboardCtrl($scope, $route, $timeout, $filter,  poolService) {
     
     $scope.pool_api_url = $route.current.params.pool;
