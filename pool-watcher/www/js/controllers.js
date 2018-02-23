@@ -28,8 +28,18 @@ angular.module('tc.controllers', [])
 }])
 
 .controller('TemplateCtrl', ['$scope', '$location', function HomeCtrl($scope, $location) {
-    console.log('made it');
+    
+    var $context_menu = $('#context_menu');
+    $context_menu.hide();
+
     $scope.loading = false;
+    
+    $('#context_menu_toggle').on('click', function(){
+        $context_menu.show();
+        setTimeout(function() {
+            $context_menu.hide();
+        }, 3000);
+    });
 }])
 
 .controller('DashboardCtrl', ['$scope', '$route', '$timeout', '$filter', 'poolService', function DashboardCtrl($scope, $route, $timeout, $filter,  poolService) {
