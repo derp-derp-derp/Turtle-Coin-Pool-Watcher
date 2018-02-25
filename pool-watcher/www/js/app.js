@@ -19,6 +19,14 @@ angular.module('tc', [
 		templateUrl: 'views/dashboard.html',
 		controller: 'DashboardCtrl as dashboard'
 	})
+	.when('/pool', {
+		templateUrl: 'views/pool.html',
+		controller: 'PoolCtrl as pool'
+	})
+	.when('/payout', {
+		templateUrl: 'views/payout.html',
+		controller: 'PayoutCtrl as payout'
+	})
 	.otherwise({
 		templateUrl: 'views/home.html',
 		controller: 'HomeCtrl as home'

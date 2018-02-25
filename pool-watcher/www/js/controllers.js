@@ -124,7 +124,7 @@ angular.module('tc.controllers', [])
     });
     
     $scope.timer = $timeout(function() {
-        // hack for header not being at top after submit
+        // fix for header not being at top after submit
         // home search form without closing keyboard first
         window.scrollTo(document.body.scrollLeft, document.body.scrollTop);
     }, 100);
@@ -132,4 +132,48 @@ angular.module('tc.controllers', [])
     $scope.$on("$destroy", function(){
         $timeout.cancel($scope.timer);
     });
+}])
+
+.controller('PoolCtrl', ['$scope', '$location', '$route', '$timeout', '$filter', 'poolService', function PoolCtrl($scope, $location, $route, $timeout, $filter,  poolService) {
+    
+    $scope.getClass = function (path) {
+        return ($location.path().substr(0, path.length) === path) ? 'active' : '';
+    }
+
+    $scope.loading = true;
+    
+        var $context_menu = $('#context_menu');
+        $context_menu.hide();
+        
+        $('#context_menu_toggle').on('click', function(){
+            $context_menu.show();
+            setTimeout(function() {
+                $context_menu.hide();
+            }, 3000);
+        });
+    
+    $scope.loading = false;
+    
+}])
+
+.controller('PayoutCtrl', ['$scope', '$location', '$route', '$timeout', '$filter', 'poolService', function PayoutCtrl($scope, $location, $route, $timeout, $filter,  poolService) {
+    
+    $scope.getClass = function (path) {
+        return ($location.path().substr(0, path.length) === path) ? 'active' : '';
+    }
+
+    $scope.loading = true;
+    
+        var $context_menu = $('#context_menu');
+        $context_menu.hide();
+        
+        $('#context_menu_toggle').on('click', function(){
+            $context_menu.show();
+            setTimeout(function() {
+                $context_menu.hide();
+            }, 3000);
+        });
+    
+    $scope.loading = false;
+    
 }]);
