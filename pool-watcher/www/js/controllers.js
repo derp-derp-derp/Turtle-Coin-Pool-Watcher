@@ -104,7 +104,7 @@ angular.module('tc.controllers', [])
                 },
                 tooltip: {
                     formatter: function(){
-                        return $filter('timeAgoLastShare')(this.point.name) + '<br>' + $filter('chartHashFormat')(this.point.y) + '/sec';
+                        return $filter('timeAgo')(this.point.name) + '<br>' + $filter('hashrateFormat')(this.point.y) + '/sec';
                     },
                     shadow: false
                 },
@@ -154,6 +154,84 @@ angular.module('tc.controllers', [])
     $scope.wallet_address = $route.current.params.wallet_address;
     $scope.loading = true;
     
+    poolService.getStats( $scope.pool_api_url ).then(function(stats) {
+        
+        console.log(stats);
+        $scope.pool_stats = stats.pool;
+        $scope.pool_config = stats.config;
+        $scope.network_stats = stats.network;
+        $scope.network_last_updated = $filter('timeAgo')(parseInt(stats.network.timestamp));
+        $scope.min_payment = $filter('formatTRTL')(stats.config.minPaymentThreshold);
+        $scope.pool_hashrate = $filter('hashrateFormat')(stats.pool.hashrate);
+        
+        var hashes = [];
+        
+        angular.forEach(stats.charts.hashrate, function(value, key) {
+            // API gives us the last 45 data points by default
+            // only show the most recent 15
+            if(key >= 30)
+            {
+                var data_point = {
+                    name: stats.charts.hashrate[key][0],
+                    y: Number(stats.charts.hashrate[key][1])
+                }
+                hashes.push(data_point);
+            }
+        });
+        
+        setTimeout(function() {
+            $('#chart').highcharts({
+                chart: {
+                    type: "areaspline",
+                    backgroundColor: '#F9F9F9'
+                },
+                legend: {
+                    enabled: false
+                },
+                credits: {
+                    enabled: false
+                },
+                title: {
+                    text: '',
+                    style: {
+                        'display':'none'
+                    }
+                },
+                yAxis: {
+                    labels: {
+                      style: {
+                          fontFamily: '"Roboto", Helvetica, Arial',
+                          color: '#5d5d5d'
+                      }
+                    },
+                    title: {
+                        text: ''
+                    },
+                    gridLineColor: '#5d5d5d'
+                },
+                xAxis: {
+                    labels: {
+                      enabled: false  
+                    },
+                    lineWidth: 0,
+                    minorGridLineWidth: 0,
+                    lineColor: 'transparent',
+                    minorTickLength: 0,
+                    tickLength: 0
+                },
+                tooltip: {
+                    formatter: function(){
+                        return $filter('timeAgo')(this.point.name) + '<br>' + $filter('hashrateFormat')(this.point.y) + '/sec';
+                    },
+                    shadow: false
+                },
+                series: [{
+                    color: '#5d5d5d',
+                    data: hashes
+                }]
+            });
+        }, 500);
+        
         var $context_menu = $('#context_menu');
         $context_menu.hide();
         
@@ -164,7 +242,8 @@ angular.module('tc.controllers', [])
             }, 3000);
         });
     
-    $scope.loading = false;
+        $scope.loading = false;
+    });
     
 }])
 
@@ -188,7 +267,7 @@ angular.module('tc.controllers', [])
         var parsePayment = function (time, serializedPayment){
             var parts = serializedPayment.split(':');
             return {
-                time: $filter('timeAgoLastShare')(parseInt(time)),
+                time: $filter('timeAgo')(parseInt(time)),
                 hash: parts[0],
                 amount: (Number(parts[1]) / 100).toFixed(2)
             };

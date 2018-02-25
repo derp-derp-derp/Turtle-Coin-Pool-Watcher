@@ -2,14 +2,14 @@
 
 angular.module('tc.filters', [])
 
-.filter('timeAgoLastShare', function() {
+.filter('timeAgo', function() {
   return function(date) {
     var d = new Date(parseInt(date) * 1000).toISOString();
     return jQuery.timeago(d);
   }
 })
 
-.filter('chartHashFormat', function() {
+.filter('hashrateFormat', function() {
   return function(hashrate) {
     var i = 0;
     var byteUnits = [' H', ' KH', ' MH', ' GH', ' TH', ' PH' ];
@@ -18,5 +18,11 @@ angular.module('tc.filters', [])
         i++;
     }
     return hashrate.toFixed(2) + byteUnits[i];
+  }
+})
+
+.filter('formatTRTL', function() {
+  return function(amount) {
+    return (Number(amount) / 100).toFixed(2);
   }
 });
