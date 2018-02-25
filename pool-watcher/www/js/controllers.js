@@ -27,7 +27,7 @@ angular.module('tc.controllers', [])
     });
 }])
 
-.controller('DashboardCtrl', ['$scope', '$location', '$route', '$timeout', '$filter', 'poolService', function DashboardCtrl($scope, $location, $route, $timeout, $filter,  poolService) {
+.controller('DashboardCtrl', ['$scope', '$location', '$route', '$timeout', '$filter', 'minerService', function DashboardCtrl($scope, $location, $route, $timeout, $filter,  minerService) {
     
     $scope.getClass = function (path) {
         return ($location.path().substr(0, path.length) === path) ? 'active' : '';
@@ -37,12 +37,12 @@ angular.module('tc.controllers', [])
     poolInfo = poolInfo.split("|");
     
     $scope.pool_encoded = $route.current.params.pool;
-    $scope.pool_name = btoa(poolInfo[0]);
+    $scope.pool_name = poolInfo[0];
     $scope.pool_api_url = btoa(poolInfo[1]);
     $scope.wallet_address = $route.current.params.wallet_address;
     $scope.loading = true;
     
-    poolService.getMinerStats( $scope.pool_api_url, $scope.wallet_address ).then(function(stats) {
+    minerService.getStats( $scope.pool_api_url, $scope.wallet_address ).then(function(stats) {
         $scope.miner_stats = stats.stats;
         $scope.paid_formatted = (Number(stats.stats.paid) / 100).toFixed(2);
         $scope.balance_formatted = (Number(stats.stats.balance) / 100).toFixed(2);
@@ -149,7 +149,7 @@ angular.module('tc.controllers', [])
     poolInfo = poolInfo.split("|");
     
     $scope.pool_encoded = $route.current.params.pool;
-    $scope.pool_name = btoa(poolInfo[0]);
+    $scope.pool_name = poolInfo[0];
     $scope.pool_api_url = btoa(poolInfo[1]);
     $scope.wallet_address = $route.current.params.wallet_address;
     $scope.loading = true;
@@ -168,7 +168,7 @@ angular.module('tc.controllers', [])
     
 }])
 
-.controller('PayoutsCtrl', ['$scope', '$location', '$route', '$timeout', '$filter', 'poolService', function PayoutsCtrl($scope, $location, $route, $timeout, $filter,  poolService) {
+.controller('PayoutsCtrl', ['$scope', '$location', '$route', '$timeout', '$filter', 'minerService', function PayoutsCtrl($scope, $location, $route, $timeout, $filter,  minerService) {
     
     $scope.getClass = function (path) {
         return ($location.path().substr(0, path.length) === path) ? 'active' : '';
@@ -178,11 +178,31 @@ angular.module('tc.controllers', [])
     poolInfo = poolInfo.split("|");
     
     $scope.pool_encoded = $route.current.params.pool;
-    $scope.pool_name = btoa(poolInfo[0]);
+    $scope.pool_name = poolInfo[0];
     $scope.pool_api_url = btoa(poolInfo[1]);
     $scope.wallet_address = $route.current.params.wallet_address;
     $scope.loading = true;
     
+    minerService.getStats( $scope.pool_api_url, $scope.wallet_address ).then(function(stats) {
+        
+        var parsePayment = function (time, serializedPayment){
+            var parts = serializedPayment.split(':');
+            return {
+                time: $filter('timeAgoLastShare')(parseInt(time)),
+                hash: parts[0],
+                amount: (Number(parts[1]) / 100).toFixed(2)
+            };
+        };
+        
+        var minerPayments = [];
+        
+        for (var i = 0; i < stats.payments.length; i += 2){
+            var payment = parsePayment(stats.payments[i + 1], stats.payments[i]);
+            minerPayments.push(payment);
+        }
+        
+        $scope.miner_payments = minerPayments;
+        
         var $context_menu = $('#context_menu');
         $context_menu.hide();
         
@@ -193,6 +213,7 @@ angular.module('tc.controllers', [])
             }, 3000);
         });
     
-    $scope.loading = false;
+        $scope.loading = false;
+    });
     
 }]);
