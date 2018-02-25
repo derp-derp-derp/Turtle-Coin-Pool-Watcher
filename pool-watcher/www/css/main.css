@@ -265,7 +265,7 @@ div {
 
     #tab_bar div {
         float: left;
-        width: 33%;
+        width: 33.33%;
         font-family: 'Roboto'; text-align: center;
         padding-bottom: 10px;
     }
