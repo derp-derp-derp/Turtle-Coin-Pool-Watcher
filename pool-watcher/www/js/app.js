@@ -15,10 +15,6 @@ angular.module('tc', [
 		templateUrl: 'views/home.html',
 		controller: 'HomeCtrl as home'
 	})
-	.when('/template', {
-		templateUrl: 'views/template.html',
-		controller: 'TemplateCtrl as template'
-	})
 	.when('/dashboard/:pool/:wallet_address', {
 		templateUrl: 'views/dashboard.html',
 		controller: 'DashboardCtrl as dashboard'

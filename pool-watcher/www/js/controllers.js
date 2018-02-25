@@ -27,22 +27,11 @@ angular.module('tc.controllers', [])
     });
 }])
 
-.controller('TemplateCtrl', ['$scope', '$location', function HomeCtrl($scope, $location) {
+.controller('DashboardCtrl', ['$scope', '$location', '$route', '$timeout', '$filter', 'poolService', function DashboardCtrl($scope, $location, $route, $timeout, $filter,  poolService) {
     
-    var $context_menu = $('#context_menu');
-    $context_menu.hide();
-
-    $scope.loading = false;
-    
-    $('#context_menu_toggle').on('click', function(){
-        $context_menu.show();
-        setTimeout(function() {
-            $context_menu.hide();
-        }, 3000);
-    });
-}])
-
-.controller('DashboardCtrl', ['$scope', '$route', '$timeout', '$filter', 'poolService', function DashboardCtrl($scope, $route, $timeout, $filter,  poolService) {
+    $scope.getClass = function (path) {
+        return ($location.path().substr(0, path.length) === path) ? 'active' : '';
+    }
     
     $scope.pool_api_url = $route.current.params.pool;
     $scope.wallet_address = $route.current.params.wallet_address;
@@ -68,57 +57,69 @@ angular.module('tc.controllers', [])
             }
         });
         
-        $('#chart').highcharts({
-            chart: {
-                type: "areaspline",
-                backgroundColor: '#F9F9F9'
-            },
-            legend: {
-                enabled: false
-            },
-            credits: {
-                enabled: false
-            },
-            title: {
-                text: '',
-                style: {
-                    'display':'none'
-                }
-            },
-            yAxis: {
-                labels: {
-                  style: {
-                      fontFamily: '"Roboto", Helvetica, Arial',
-                      color: '#5d5d5d'
-                  }
+        setTimeout(function() {
+            $('#chart').highcharts({
+                chart: {
+                    type: "areaspline",
+                    backgroundColor: '#F9F9F9'
+                },
+                legend: {
+                    enabled: false
+                },
+                credits: {
+                    enabled: false
                 },
                 title: {
-                    text: ''
+                    text: '',
+                    style: {
+                        'display':'none'
+                    }
                 },
-                gridLineColor: '#5d5d5d'
-            },
-            xAxis: {
-                labels: {
-                  enabled: false  
+                yAxis: {
+                    labels: {
+                      style: {
+                          fontFamily: '"Roboto", Helvetica, Arial',
+                          color: '#5d5d5d'
+                      }
+                    },
+                    title: {
+                        text: ''
+                    },
+                    gridLineColor: '#5d5d5d'
                 },
-                lineWidth: 0,
-                minorGridLineWidth: 0,
-                lineColor: 'transparent',
-                minorTickLength: 0,
-                tickLength: 0
-            },
-            tooltip: {
-                formatter: function(){
-                    return $filter('timeAgoLastShare')(this.point.name) + '<br>' + $filter('chartHashFormat')(this.point.y) + '/sec';
+                xAxis: {
+                    labels: {
+                      enabled: false  
+                    },
+                    lineWidth: 0,
+                    minorGridLineWidth: 0,
+                    lineColor: 'transparent',
+                    minorTickLength: 0,
+                    tickLength: 0
                 },
-                shadow: false
-            },
-            series: [{
-                color: '#5d5d5d',
-                data: hashes
-            }]
-        });
+                tooltip: {
+                    formatter: function(){
+                        return $filter('timeAgoLastShare')(this.point.name) + '<br>' + $filter('chartHashFormat')(this.point.y) + '/sec';
+                    },
+                    shadow: false
+                },
+                series: [{
+                    color: '#5d5d5d',
+                    data: hashes
+                }]
+            });
+        }, 500);
         
+        var $context_menu = $('#context_menu');
+        $context_menu.hide();
+        
+        $('#context_menu_toggle').on('click', function(){
+            $context_menu.show();
+            setTimeout(function() {
+                $context_menu.hide();
+            }, 3000);
+        });
+            
         $scope.loading = false;
     });
     

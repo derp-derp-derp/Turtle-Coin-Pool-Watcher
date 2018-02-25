@@ -1,3 +1,13 @@
+#homeContainer {
+    background-color: #00843d;
+    height: 100%;
+    text-align: center;
+}
+
+#mainLogo {
+    margin-top: 60px;
+}
+
 #mainLogo, #submitPool, #searchText {
     margin-bottom: 30px;
 }
@@ -20,10 +30,4 @@
     font-weight: 300;
     -webkit-touch-callout: text;
     -webkit-user-select: text;
-}
-
-@media only screen and (orientation:landscape) {
-    #mainLogo, #submitPool, #searchText {
-        margin-bottom: 10px;
-    }
 }

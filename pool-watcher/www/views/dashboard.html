@@ -1,51 +1,61 @@
-        <div id="main-bg-container">
-            <div id="content">
-                <div class="vAlignTop">
-                    <div class="loading" ng-show="loading">Loading&#8230;</div>
-                    <div id="heading" style="border-bottom: 0px;"><a href back-button id="back-button"></a><span>Dashboard</span></div>
-                    
-                    <div class="scrollFix">
-                        
-                        <div style="margin-top: 40px;" ng-hide="loading">
-                        
-                            <div style="text-align: center; word-break: break-all; padding: 10px; margin-bottom: 10px;">
-                                <strong>Miner</strong><br>
-                                {{wallet_address}}
-                            </div>
-                            
-                            <div class="content_card">
-                                <strong>Hash Rate</strong><br>
-                                {{miner_stats.hashrate}}/sec
-                            </div>
-                            
-                            <div class="content_card">
-                                <strong>Paid</strong><br>
-                                {{paid_formatted}} TRTL
-                            </div>
-                            
-                            <div class="content_card">
-                                <strong>Balance</strong><br>
-                                {{balance_formatted}} TRTL
-                            </div>
-                            
-                            <div class="content_card">
-                                <strong>Last Share</strong><br>
-                                {{miner_stats.lastShare | timeAgoLastShare}}
-                            </div>
-                            
-                            <div class="content_card">
-                                <strong>Submitted Hashes</strong><br>
-                                {{miner_stats.hashes}}
-                            </div>
-                            
-                            <div class="content_card">
-                                <strong>Hash Rate Chart</strong><br>
-                                <div id="chart"></div>
-                            </div>
-                        
-                        </div>
-                    
-                    </div>
-                </div>
-            </div>
-        </div>
+<div id="header">
+    
+    <div id="title_string"><strong>Pool Monitor</strong></div>
+    <div id="main_menu_icons">
+        <div id="dots_icon"><img src="img/dot-icon.png" height="25" width="25" id="context_menu_toggle"></div>
+        <div id="refresh_icon"><a href="javascript:location.reload();"><img src="img/refresh-icon.png" height="25" width="25"></a></div>
+    </div>
+    <div style="clear: both;"></div>
+    
+    <div id="tab_bar">
+        <div ng-class="getClass('/dashboard')">Dashboard</div>
+        <div ng-class="getClass('/pool')">Pool</div>
+        <div ng-class="getClass('/payout')">Payout</div>
+    </div>
+
+</div>
+
+<div id="context_menu" ng-hide="loading">
+    <a href="#/home">Change Address</a>
+</div>
+
+<div class="loading" ng-show="loading">Loading&#8230;</div>
+
+<div class="content_section" ng-hide="loading">
+    
+    <div class="long_address">
+        <strong>Miner</strong><br>
+        {{wallet_address}}
+    </div>
+    
+    <div class="content_card">
+        <strong>Hash Rate</strong><br>
+        {{miner_stats.hashrate}}/sec
+    </div>
+    
+    <div class="content_card">
+        <strong>Paid</strong><br>
+        {{paid_formatted}} TRTL
+    </div>
+    
+    <div class="content_card">
+        <strong>Balance</strong><br>
+        {{balance_formatted}} TRTL
+    </div>
+    
+    <div class="content_card">
+        <strong>Last Share</strong><br>
+        {{miner_stats.lastShare | timeAgoLastShare}}
+    </div>
+    
+    <div class="content_card">
+        <strong>Submitted Hashes</strong><br>
+        {{miner_stats.hashes}}
+    </div>
+    
+    <div class="content_card">
+        <strong>Hash Rate Chart</strong><br>
+        <div id="chart"></div>
+    </div>
+
+</div>
