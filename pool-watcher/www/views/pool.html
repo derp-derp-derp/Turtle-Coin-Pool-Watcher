@@ -8,9 +8,9 @@
     <div style="clear: both;"></div>
     
     <div id="tab_bar">
-        <div ng-class="getClass('/dashboard')" onclick="javascript:location.replace('#/dashboard');">Dashboard</div>
-        <div ng-class="getClass('/pool')" onclick="javascript:location.replace('#/pool');">Pool</div>
-        <div ng-class="getClass('/payout')" onclick="javascript:location.replace('#/payout');">Payout</div>
+        <a ng-href="#/dashboard/{{pool_encoded}}/{{wallet_address}}" ng-class="getClass('/dashboard')">Dashboard</a>
+        <a ng-href="#/pool/{{pool_encoded}}/{{wallet_address}}" ng-class="getClass('/pool')">Pool</a>
+        <a ng-href="#/payouts/{{pool_encoded}}/{{wallet_address}}" ng-class="getClass('/payouts')">Payouts</a>
     </div>
 
 </div>

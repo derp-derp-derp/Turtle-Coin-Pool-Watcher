@@ -33,7 +33,12 @@ angular.module('tc.controllers', [])
         return ($location.path().substr(0, path.length) === path) ? 'active' : '';
     }
     
-    $scope.pool_api_url = $route.current.params.pool;
+    var poolInfo = atob($route.current.params.pool)
+    poolInfo = poolInfo.split("|");
+    
+    $scope.pool_encoded = $route.current.params.pool;
+    $scope.pool_name = btoa(poolInfo[0]);
+    $scope.pool_api_url = btoa(poolInfo[1]);
     $scope.wallet_address = $route.current.params.wallet_address;
     $scope.loading = true;
     
@@ -139,7 +144,14 @@ angular.module('tc.controllers', [])
     $scope.getClass = function (path) {
         return ($location.path().substr(0, path.length) === path) ? 'active' : '';
     }
-
+    
+    var poolInfo = atob($route.current.params.pool)
+    poolInfo = poolInfo.split("|");
+    
+    $scope.pool_encoded = $route.current.params.pool;
+    $scope.pool_name = btoa(poolInfo[0]);
+    $scope.pool_api_url = btoa(poolInfo[1]);
+    $scope.wallet_address = $route.current.params.wallet_address;
     $scope.loading = true;
     
         var $context_menu = $('#context_menu');
@@ -156,12 +168,19 @@ angular.module('tc.controllers', [])
     
 }])
 
-.controller('PayoutCtrl', ['$scope', '$location', '$route', '$timeout', '$filter', 'poolService', function PayoutCtrl($scope, $location, $route, $timeout, $filter,  poolService) {
+.controller('PayoutsCtrl', ['$scope', '$location', '$route', '$timeout', '$filter', 'poolService', function PayoutsCtrl($scope, $location, $route, $timeout, $filter,  poolService) {
     
     $scope.getClass = function (path) {
         return ($location.path().substr(0, path.length) === path) ? 'active' : '';
     }
 
+    var poolInfo = atob($route.current.params.pool)
+    poolInfo = poolInfo.split("|");
+    
+    $scope.pool_encoded = $route.current.params.pool;
+    $scope.pool_name = btoa(poolInfo[0]);
+    $scope.pool_api_url = btoa(poolInfo[1]);
+    $scope.wallet_address = $route.current.params.wallet_address;
     $scope.loading = true;
     
         var $context_menu = $('#context_menu');

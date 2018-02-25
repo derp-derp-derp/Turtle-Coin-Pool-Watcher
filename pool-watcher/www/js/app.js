@@ -19,13 +19,13 @@ angular.module('tc', [
 		templateUrl: 'views/dashboard.html',
 		controller: 'DashboardCtrl as dashboard'
 	})
-	.when('/pool', {
+	.when('/pool/:pool/:wallet_address', {
 		templateUrl: 'views/pool.html',
 		controller: 'PoolCtrl as pool'
 	})
-	.when('/payout', {
-		templateUrl: 'views/payout.html',
-		controller: 'PayoutCtrl as payout'
+	.when('/payouts/:pool/:wallet_address', {
+		templateUrl: 'views/payouts.html',
+		controller: 'PayoutsCtrl as payouts'
 	})
 	.otherwise({
 		templateUrl: 'views/home.html',

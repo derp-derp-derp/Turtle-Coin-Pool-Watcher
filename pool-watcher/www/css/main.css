@@ -263,14 +263,16 @@ div {
 
 #tab_bar { margin-top: 20px; }
 
-    #tab_bar div {
+    #tab_bar a {
         float: left;
         width: 33.33%;
+        color: #ffffff;
+        text-decoration: none;
         font-family: 'Roboto'; text-align: center;
         padding-bottom: 10px;
     }
     
-    #tab_bar .active { border-bottom: 2px solid #fff; }
+    #tab_bar a.active { border-bottom: 2px solid #fff; }
 
 #context_menu {
     width: 150px;
