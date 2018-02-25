@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.poolwatcher.turtlecoin.lol" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Pool Watcher</name>
+    <name>TRTL Pools</name>
     <description>
         Free monitoring application for checking your Turtle Coin mining pool and worker status.
     </description>
