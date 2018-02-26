@@ -3,11 +3,28 @@
 angular.module('tc.controllers', [])
 
 .controller('HomeCtrl', ['$scope', '$location', function HomeCtrl($scope, $location) {
+    
+    var storage = window.localStorage;
+    var storage_wallet_address = storage.getItem('wallet_address');
+    var wallet_input = $('#walletAddress');
+    
+    if(!storage_wallet_address)
+    {
+        wallet_input.val('Wallet address');
+    }
+    else
+    {
+        wallet_input.val(storage_wallet_address);
+    }
+    
     var doSubmitPool = function() {
         var pool = btoa($('#poolApiUrl').val());
-        var wallet_address = $('#walletAddress').val();
+        var wallet_address = wallet_input.val();
         
         if(wallet_address.length > 1 && wallet_address !== 'Wallet address') {
+            
+            storage.setItem('wallet_address', wallet_address);
+            
             var full_path = '/dashboard/' + pool + '/' + wallet_address;
             $location.path(full_path);
             $location.replace();
