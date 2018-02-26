@@ -1,8 +1,8 @@
 # Pool Monitor
 
-An Apache Cordova iOS application to monitor mining stats for all major TurtleCoin mining pools running CryptoNote
+An Apache Cordova application to monitor mining stats for all major TurtleCoin mining pools running CryptoNote.
 
-Using Pool Monitor you can get all the details regarding your TurtleCoin mining like hash rate, payments, and more.
+Using Pool Monitor you can get all the details regarding your TurtleCoin mining like hashrate, payments, and more.
 
 Features:
 * Easy. Just add your wallet address and, voilà, you'll have all of the details.
@@ -13,23 +13,25 @@ Features:
 ## List of Pools Supported
 Currently the app supports the following pools:
 
-* [Z-Pool.com](http://z-pool.com/)
-* [SlowandSteady.fun](http://slowandsteady.fun/)
-* [Eu.turtlepool.space](http://eu.turtlepool.space/)
-* [Hk.turtlepool.space](http://hk.turtlepool.space/)
-* [Us.turtlepool.space](http://us.turtlepool.space/)
-* [Ny.minetrtl.us](http://ny.minetrtl.us/)
-* [Trtl.radicaldelta.org](http://trtl.radicaldelta.org/)
-* [Auspool.turtleco.in](http://auspool.turtleco.in/)
-* [Xk.is](http://xk.is/)
-* [Turtlecoinpool.ddns.net](http://turtlecoinpool.ddns.net/)
-* [Pool.turtleco.in](http://pool.turtleco.in/)
-* [Trtlpool.ninja](http://trtlpool.ninja/)
-* [Pool.trtl.me](http://pool.trtl.me/)
-* [Crytoknight.cc](http://cryptoknight.cc/)
-* [Trtl.ninja](http://trtl.ninja/)
-* [Atpool.party](http://atpool.party/)
-* [Etnchina.io](http://etnchina.io/trtl)
+* [z-pool.com](http://z-pool.com/)
+* [slowandsteady.fun](http://slowandsteady.fun/)
+* [eu.turtlepool.space](http://eu.turtlepool.space/)
+* [hk.turtlepool.space](http://hk.turtlepool.space/)
+* [us.turtlepool.space](http://us.turtlepool.space/)
+* [ny.minetrtl.us](http://ny.minetrtl.us/)
+* [trtl.radicaldelta.org](http://trtl.radicaldelta.org/)
+* [auspool.turtleco.in](http://auspool.turtleco.in/)
+* [xk.is](http://xk.is/)
+* [turtlecoinpool.ddns.net](http://turtlecoinpool.ddns.net/)
+* [pool.turtleco.in](http://pool.turtleco.in/)
+* [trtlpool.ninja](http://trtlpool.ninja/)
+* [pool.trtl.me](http://pool.trtl.me/)
+* [crytoknight.cc](http://cryptoknight.cc/)
+* [trtl.ninja](http://trtl.ninja/)
+* [atpool.party](http://atpool.party/)
+* [etnchina.io](http://etnchina.io/trtl)
+* [sewer.ninja](http://sewer.ninja)
+* [turtlecoinpool.ml](http://turtlecoinpool.ml)
 
 ## Contributing
 
