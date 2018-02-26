@@ -9,6 +9,9 @@
   "installed_plugins": {
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.poolwatcher.turtlecoin.lol"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "lol.turtlecoin.poolwatcher"
     }
   },
   "dependent_plugins": {}

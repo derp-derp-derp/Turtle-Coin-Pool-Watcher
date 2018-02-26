@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.poolwatcher.turtlecoin.lol" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="lol.turtlecoin.poolwatcher" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>TRTL Pools</name>
     <description>
         Free monitoring application for checking your Turtle Coin mining pool and worker status.
@@ -20,11 +20,10 @@
         <allow-intent href="market:*" />
     </platform>
     <platform name="ios">
-
         <preference name="orientation" value="portrait" />
         <preference name="target-device" value="universal" />
         <preference name="fullscreen" value="true" />
-        
+        <preference name="StatusBarStyle" value="lightcontent" />
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
         <splash height="2732" src="res/screen/ios/Default@2x~universal~anyany.png" width="2732" />
@@ -46,5 +45,6 @@
         <icon gap:platform="ios" height="167" src="res/icon/ios/AppIcon-83.5x83.5@2x.png" width="167" />
         <icon gap:platform="ios" height="1024" src="res/icon/ios/AppIcon-1024@1x.png" width="1024" />
     </platform>
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
     <engine name="ios" spec="^4.5.4" />
 </widget>
