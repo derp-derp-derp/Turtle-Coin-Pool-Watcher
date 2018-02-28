@@ -172,13 +172,13 @@ angular.module('tc.controllers', [])
     $scope.loading = true;
     
     poolService.getStats( $scope.pool_api_url ).then(function(stats) {
-        
-        console.log(stats);
+
         $scope.pool_stats = stats.pool;
         $scope.pool_config = stats.config;
         $scope.network_stats = stats.network;
         $scope.network_last_updated = $filter('timeAgo')(parseInt(stats.network.timestamp));
         $scope.min_payment = $filter('formatTRTL')(stats.config.minPaymentThreshold);
+        $scope.block_reward = $filter('formatTRTL')(stats.network.reward);
         $scope.pool_hashrate = $filter('hashrateFormat')(stats.pool.hashrate);
         
         var hashes = [];
