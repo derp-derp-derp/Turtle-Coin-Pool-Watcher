@@ -2,7 +2,7 @@
 <widget id="lol.turtlecoin.poolwatcher" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>TRTL Pools</name>
     <description>
-        Free monitoring application for checking your Turtle Coin mining pool and worker status.
+        Monitoring application for checking your Turtle Coin mining pool and worker status.
     </description>
     <author email="derpes@protonmail.com" href="https://turtlecoin.lol">
         derp-derp-derp
