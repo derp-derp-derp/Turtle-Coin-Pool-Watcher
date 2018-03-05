@@ -103,78 +103,102 @@ angular.module('tc.controllers', [])
     $scope.loading = true;
     
     minerService.getStats( $scope.pool_api_url, $scope.wallet_address ).then(function(stats) {
-        $scope.miner_stats = stats.stats;
-        $scope.paid_formatted = (Number(stats.stats.paid) / 100).toFixed(2);
-        $scope.balance_formatted = (Number(stats.stats.balance) / 100).toFixed(2);
-        $scope.last_share = $filter('timeAgo')(stats.stats.lastShare);
+        if(stats.error == "not found")
+        {
+            $scope.has_results = false;
+        }
+        else
+        {
+            $scope.has_results = true;
         
-        var hashes = [];
-        
-        angular.forEach(stats.charts.hashrate, function(value, key) {
-            // API gives us the last 45 data points by default
-            // only show the most recent 15
-            if(key >= 30)
-            {
-                var data_point = {
-                    name: stats.charts.hashrate[key][0],
-                    y: Number(stats.charts.hashrate[key][1])
-                }
-                hashes.push(data_point);
-            }
-        });
-        
-        setTimeout(function() {
-            $('#chart').highcharts({
-                chart: {
-                    type: "areaspline",
-                    backgroundColor: '#F9F9F9'
-                },
-                legend: {
-                    enabled: false
-                },
-                credits: {
-                    enabled: false
-                },
-                title: {
-                    text: '',
-                    style: {
-                        'display':'none'
+            $scope.miner_stats = stats.stats;
+            $scope.paid_formatted = (Number(stats.stats.paid) / 100).toFixed(2);
+            $scope.balance_formatted = (Number(stats.stats.balance) / 100).toFixed(2);
+            $scope.last_share = $filter('timeAgo')(stats.stats.lastShare);
+            $scope.hashrate_chart = stats.charts.hashrate;
+            
+            var hashes = [];
+            
+            angular.forEach(stats.charts.hashrate, function(value, key) {
+                
+                if(stats.charts.hashrate.length > 30)
+                {
+                    // API gives us the last 45 data points by default
+                    // only show the most recent 15
+                    if(key >= 30)
+                    {
+                        var data_point = {
+                            name: stats.charts.hashrate[key][0],
+                            y: Number(stats.charts.hashrate[key][1])
+                        }
+                        hashes.push(data_point);
                     }
-                },
-                yAxis: {
-                    labels: {
-                      style: {
-                          fontFamily: '"Roboto", Helvetica, Arial',
-                          color: '#5d5d5d'
-                      }
+                }
+                else
+                {
+                    var data_point = {
+                        name: stats.charts.hashrate[key][0],
+                        y: Number(stats.charts.hashrate[key][1])
+                    }
+                    hashes.push(data_point);
+                }
+            });
+            
+            setTimeout(function() {
+                $('#chart').highcharts({
+                    chart: {
+                        type: "areaspline",
+                        backgroundColor: '#F9F9F9'
+                    },
+                    legend: {
+                        enabled: false
+                    },
+                    credits: {
+                        enabled: false
                     },
                     title: {
-                        text: ''
+                        text: '',
+                        style: {
+                            'display':'none'
+                        }
                     },
-                    gridLineColor: '#5d5d5d'
-                },
-                xAxis: {
-                    labels: {
-                      enabled: false  
+                    yAxis: {
+                        labels: {
+                          style: {
+                              fontFamily: '"Roboto", Helvetica, Arial',
+                              color: '#5d5d5d'
+                          }
+                        },
+                        title: {
+                            text: ''
+                        },
+                        gridLineColor: '#5d5d5d'
                     },
-                    lineWidth: 0,
-                    minorGridLineWidth: 0,
-                    lineColor: 'transparent',
-                    minorTickLength: 0,
-                    tickLength: 0
-                },
-                tooltip: {
-                    formatter: function(){
-                        return $filter('timeAgo')(this.point.name) + '<br>' + $filter('hashrateFormat')(this.point.y) + '/sec';
+                    xAxis: {
+                        labels: {
+                          enabled: false  
+                        },
+                        lineWidth: 0,
+                        minorGridLineWidth: 0,
+                        lineColor: 'transparent',
+                        minorTickLength: 0,
+                        tickLength: 0
                     },
-                    shadow: false
-                },
-                series: [{
-                    color: '#5d5d5d',
-                    data: hashes
-                }]
-            });
-        }, 500);
+                    tooltip: {
+                        formatter: function(){
+                            return $filter('timeAgo')(this.point.name) + '<br>' + $filter('hashrateFormat')(this.point.y) + '/sec';
+                        },
+                        shadow: false
+                    },
+                    series: [{
+                        color: '#5d5d5d',
+                        data: hashes
+                    }]
+                });
+            }, 500);
+        }
+        
+        $scope.loading = false;
         
         var $context_menu = $('#context_menu');
         $context_menu.hide();
@@ -185,8 +209,6 @@ angular.module('tc.controllers', [])
                 $context_menu.hide();
             }, 3000);
         });
-            
-        $scope.loading = false;
     });
     
     $scope.timer = $timeout(function() {
@@ -228,15 +250,27 @@ angular.module('tc.controllers', [])
         var hashes = [];
         
         angular.forEach(stats.charts.hashrate, function(value, key) {
-            // API gives us the last 48 data points by default
-            // only show the most recent 15
-            if(key >= 33)
+            
+            if(stats.charts.hashrate.length > 30)
+            {
+                // API gives us the last 48 data points by default
+                // only show the most recent 15
+                if(key >= 33)
+                {
+                    var data_point = {
+                        name: stats.charts.hashrate[key][0],
+                        y: Number(stats.charts.hashrate[key][1])
+                    }
+                    hashes.push(data_point);
+                }
+            }
+            else
             {
                 var data_point = {
                     name: stats.charts.hashrate[key][0],
                     y: Number(stats.charts.hashrate[key][1])
                 }
-                hashes.push(data_point);
+                hashes.push(data_point);   
             }
         });
         
