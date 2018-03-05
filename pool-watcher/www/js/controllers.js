@@ -7,9 +7,40 @@ angular.module('tc.controllers', [])
     var storage = window.localStorage;
     var storage_wallet_address = storage.getItem('wallet_address');
     var storage_selected_pool = storage.getItem('selected_pool');
+    var storage_selected_pool_index = storage.getItem('selected_pool_index');
     var wallet_input = $('#walletAddress');
     var pool_input = $('#poolApiUrl');
+    var sendToDashboard = function(wallet, pool, apply=null)
+    {
+        var full_path = '/dashboard/' + pool + '/' + wallet;
+        $location.path(full_path);
+        $location.replace();
+        if(apply)
+        {
+            $scope.$apply();
+        }
+    };
+    var getParameterByName = function (name, url)
+    {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    };
     
+    // auto-forward to dashboard per previous selections
+    if(storage_wallet_address &&  storage_selected_pool && (getParameterByName('reset') !== 'address'))
+    {
+        sendToDashboard(
+            storage_wallet_address,
+            btoa(storage_selected_pool)
+        );
+    }
+    
+    // check for previously stored
     if(!storage_wallet_address)
     {
         wallet_input.val('Wallet address');
@@ -19,7 +50,7 @@ angular.module('tc.controllers', [])
         wallet_input.val(storage_wallet_address);
     }
     
-    if(!storage_selected_pool)
+    if(!storage_selected_pool_index)
     {
         // select first entry in the list of pools by default
         pool_input.children().eq(0).prop('selected', true);
@@ -27,7 +58,7 @@ angular.module('tc.controllers', [])
     else
     {
         // select previously selected pool
-        pool_input.children().eq(storage_selected_pool).prop('selected', true);
+        pool_input.children().eq(storage_selected_pool_index).prop('selected', true);
     }
     
     var doSubmitPool = function() {
@@ -37,12 +68,10 @@ angular.module('tc.controllers', [])
         if(wallet_address.length > 1 && wallet_address !== 'Wallet address') {
             
             storage.setItem('wallet_address', wallet_address);
-            storage.setItem('selected_pool', pool_input[0].selectedIndex);
+            storage.setItem('selected_pool', pool_input.val());
+            storage.setItem('selected_pool_index', pool_input[0].selectedIndex);
             
-            var full_path = '/dashboard/' + pool + '/' + wallet_address;
-            $location.path(full_path);
-            $location.replace();
-            $scope.$apply();
+            sendToDashboard(wallet_address, pool, true);
         }
     };
     
