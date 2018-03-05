@@ -242,9 +242,16 @@ div {
     z-index: 997;
 }
 
+#title_logo {
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+}
+
 #title_string {
     float: left;
     padding-left: 20px;
+    font-size: 110%;
 }
 
 #main_menu_icons {
