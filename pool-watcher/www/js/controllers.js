@@ -370,9 +370,12 @@ angular.module('tc.controllers', [])
         
         var minerPayments = [];
         
-        for (var i = 0; i < stats.payments.length; i += 2){
-            var payment = parsePayment(stats.payments[i + 1], stats.payments[i]);
-            minerPayments.push(payment);
+        if(stats.payments)
+        {
+            for (var i = 0; i < stats.payments.length; i += 2){
+                var payment = parsePayment(stats.payments[i + 1], stats.payments[i]);
+                minerPayments.push(payment);
+            }
         }
         
         $scope.miner_payments = minerPayments;
