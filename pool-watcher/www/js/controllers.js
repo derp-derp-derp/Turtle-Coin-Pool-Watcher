@@ -31,7 +31,7 @@ angular.module('tc.controllers', [])
     }
     
     var doSubmitPool = function() {
-        var pool = btoa($('#poolApiUrl').val());
+        var pool = btoa(pool_input.val());
         var wallet_address = wallet_input.val();
         
         if(wallet_address.length > 1 && wallet_address !== 'Wallet address') {
