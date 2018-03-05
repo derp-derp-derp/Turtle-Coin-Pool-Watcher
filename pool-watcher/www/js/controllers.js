@@ -6,7 +6,9 @@ angular.module('tc.controllers', [])
     
     var storage = window.localStorage;
     var storage_wallet_address = storage.getItem('wallet_address');
+    var storage_selected_pool = storage.getItem('selected_pool');
     var wallet_input = $('#walletAddress');
+    var pool_input = $('#poolApiUrl');
     
     if(!storage_wallet_address)
     {
@@ -17,6 +19,17 @@ angular.module('tc.controllers', [])
         wallet_input.val(storage_wallet_address);
     }
     
+    if(!storage_selected_pool)
+    {
+        // select first entry in the list of pools by default
+        pool_input.children().eq(0).prop('selected', true);
+    }
+    else
+    {
+        // select previously selected pool
+        pool_input.children().eq(storage_selected_pool).prop('selected', true);
+    }
+    
     var doSubmitPool = function() {
         var pool = btoa($('#poolApiUrl').val());
         var wallet_address = wallet_input.val();
@@ -24,6 +37,7 @@ angular.module('tc.controllers', [])
         if(wallet_address.length > 1 && wallet_address !== 'Wallet address') {
             
             storage.setItem('wallet_address', wallet_address);
+            storage.setItem('selected_pool', pool_input[0].selectedIndex);
             
             var full_path = '/dashboard/' + pool + '/' + wallet_address;
             $location.path(full_path);
