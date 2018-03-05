@@ -239,6 +239,7 @@ div {
     width: 100%;
     padding-top: constant(safe-area-inset-top);
     padding-top: env(safe-area-inset-top);
+    z-index: 998;
 }
 
 #title_string {
