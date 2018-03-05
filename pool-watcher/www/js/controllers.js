@@ -184,9 +184,9 @@ angular.module('tc.controllers', [])
         var hashes = [];
         
         angular.forEach(stats.charts.hashrate, function(value, key) {
-            // API gives us the last 45 data points by default
+            // API gives us the last 48 data points by default
             // only show the most recent 15
-            if(key >= 30)
+            if(key >= 33)
             {
                 var data_point = {
                     name: stats.charts.hashrate[key][0],
