@@ -37,7 +37,7 @@ Please read [CONTRIBUTING](https://github.com/derp-derp-derp/Turtle-Coin-Pool-Wa
 * [derp-derp-derp](https://github.com/derp-derp-derp)
 
 ## Donating TRTL
-
+If you found the app useful, TRTL is always welcome and greatly appreciated:
 `TRTLv3m5HxMBpoJDyNFwYB7P9L4hE5ve7NshZio2GuFqRn6SDFMcZX5QPEwexAib45YV6gFrnEpkABPT8nAdGoqD16Xtv8e2xx7`
 
 ## License
@@ -46,6 +46,6 @@ This project is licensed under the GNU LGPL - see the [LICENSE](https://github.c
 
 ## Acknowledgments and Thanks
 
-* CryptoNote for Developing the Pool Software
+* [ForkNote Pool & Pool API Software](https://github.com/forknote/forknote-pool)
 * The Entire Turtle Coin Community
 * Aditya Gupta & Hemant Joshi - Developers of [Pool Watcher for Android](https://github.com/turtlecoin/mobile-pool-monitor)
