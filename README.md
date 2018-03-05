@@ -37,7 +37,7 @@ Please read [CONTRIBUTING](https://github.com/derp-derp-derp/Turtle-Coin-Pool-Wa
 * [derp-derp-derp](https://github.com/derp-derp-derp)
 
 ## Donating TRTL
-If you found the app useful, TRTL is always welcome and greatly appreciated:
+If you found the app useful, TRTL is always greatly appreciated:
 `TRTLv3m5HxMBpoJDyNFwYB7P9L4hE5ve7NshZio2GuFqRn6SDFMcZX5QPEwexAib45YV6gFrnEpkABPT8nAdGoqD16Xtv8e2xx7`
 
 ## License
