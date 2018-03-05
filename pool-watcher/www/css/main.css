@@ -239,7 +239,7 @@ div {
     width: 100%;
     padding-top: constant(safe-area-inset-top);
     padding-top: env(safe-area-inset-top);
-    z-index: 998;
+    z-index: 997;
 }
 
 #title_string {
@@ -285,6 +285,7 @@ div {
     top: calc(env(safe-area-inset-top) + 4px);
     right: 20px;
     padding: 20px;
+    z-index: 998;
 }
 
     #context_menu a { text-decoration: none; }
