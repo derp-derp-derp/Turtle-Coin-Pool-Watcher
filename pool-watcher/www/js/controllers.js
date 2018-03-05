@@ -63,6 +63,7 @@ angular.module('tc.controllers', [])
         $scope.miner_stats = stats.stats;
         $scope.paid_formatted = (Number(stats.stats.paid) / 100).toFixed(2);
         $scope.balance_formatted = (Number(stats.stats.balance) / 100).toFixed(2);
+        $scope.last_share = $filter('timeAgo')(stats.stats.lastShare);
         
         var hashes = [];
         
@@ -176,7 +177,7 @@ angular.module('tc.controllers', [])
         $scope.pool_stats = stats.pool;
         $scope.pool_config = stats.config;
         $scope.network_stats = stats.network;
-        $scope.network_last_updated = $filter('timeAgo')(parseInt(stats.network.timestamp));
+        $scope.network_last_updated = $filter('timeAgo')(stats.network.timestamp);
         $scope.min_payment = $filter('formatTRTL')(stats.config.minPaymentThreshold);
         $scope.block_reward = $filter('formatTRTL')(stats.network.reward);
         $scope.pool_hashrate = $filter('hashrateFormat')(stats.pool.hashrate);
