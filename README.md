@@ -46,6 +46,6 @@ This project is licensed under the GNU LGPL - see the [LICENSE](https://github.c
 
 ## Acknowledgments and Thanks
 
-* [ForkNote Pool & Pool API Software](https://github.com/forknote/forknote-pool)
+* [Forknote Pool & Pool API Software](https://github.com/forknote/forknote-pool)
 * The Entire Turtle Coin Community
 * Aditya Gupta & Hemant Joshi - Developers of [Pool Watcher for Android](https://github.com/turtlecoin/mobile-pool-monitor)
